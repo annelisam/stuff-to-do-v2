@@ -5,4 +5,6 @@ const router = express.Router();
 
 router.route('api/events/:id?').get(eventsController.get);
 router.route('api/events').post(eventsController.post);
-router.route('api/events').patch(eventsController.patch);
+router.route('api/events').put(eventsController.put);
+
+module.exports = router;

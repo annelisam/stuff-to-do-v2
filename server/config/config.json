@@ -1,9 +1,16 @@
 {
   "development": {
+<<<<<<< HEAD
     "username": "james",
     "password": "james666",
     "database": "database_development",
     "host": "127.0.0.1",
+=======
+    "username": "root",
+    "password": "abc123",
+    "database": "project2",
+    "host": "localhost",
+>>>>>>> master
     "dialect": "mysql"
   },
   "test": {

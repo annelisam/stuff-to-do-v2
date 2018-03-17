@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-  let Users = sequelize.define('Users', {
+  let User = sequelize.define('User', {
     name: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -17,17 +17,19 @@ module.exports = (sequelize, DataTypes) => {
     company: {
       type: DataTypes.STRING, 
       allowNull: true,
-      validate: {
-        min: 2,
-      }
+      defaultValue: 'N/A',
     },
     upVotes: {
-      
+      type: DataTypes.JSON,
+      allowNull: true,
+      defaultValue: '[]',
     }
+  }, {
+    timeStamp: true,
   })
 
-  Users.associate = (models) => {
-    models.Users.hasMany(models.Events);
+  User.associate = (models) => {
+    models.User.hasMany(models.Event);
   }
 
   return User;

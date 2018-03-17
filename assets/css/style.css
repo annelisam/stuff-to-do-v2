@@ -11,9 +11,7 @@ p {
     font-family:sans-serif, 'Roboto', helvetica, arial;
 }
 
-input {
-    font-family: sans-serif, 'Roboto', helvetica, arial;
-}
+
 
 .dropdown:hover .dropdown-menu {
     display: block;
@@ -22,7 +20,6 @@ input {
 
 .main-header {
     padding-top: 100px;
-    padding-bottom: 200px;
     position: relative;
     color: #000;
     font-size: 25px;
@@ -42,11 +39,66 @@ input {
 
 }
 
+/* Landing header */
+
 #landing-header {
-    color: #000;
     padding-top: 200px;
-    padding-bottom: 10px;
-    font-weight: 400;
-    font-size: 100px;
+    padding-bottom: 20px;
+    color: #fff;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.6);
     font-family: sans-serif, 'Roboto', helvetica, arial;
+    text-align: center;
+    font-weight: 600;
+    font-size: 55px;
+}
+
+#landing-input{
+    font-family: sans-serif, 'Roboto', helvetica, arial;
+    border: none;
+    border-radius: 25px;
+    padding: 5px;
+    width: 450px;
+    height: 50px;
+    font-size: 18px;
+    padding-left: 10px;
+    opacity: 0.8
+}
+
+#landing-input input::placeholder {
+    color: #777;
+    text-align: left;
+    font-size: 18px
+}
+
+/* Main Content */
+.main-content {
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+
+.card {
+    margin-right: 25px;
+    margin-bottom: 50px;
+    height: 300px auto;
+}
+
+.card-img {
+    height: 300px;
+    width: auto;
+    border-radius: 10px;
+}
+
+.card-title {
+    font-weight: 400px;
+    text-align: center;
+    font-size: 40px;
+    padding-top: 100px;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.6);
+}
+
+.options-card {
+    position: center;
+    margin: 15px;
+    border-radius: 25px; 
 }

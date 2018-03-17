@@ -21,7 +21,6 @@ p {
 .main-header {
     padding-top: 100px;
     position: relative;
-    color: #000;
     font-size: 25px;
 
     /* The image used */
@@ -101,4 +100,16 @@ p {
     position: center;
     margin: 15px;
     border-radius: 25px; 
+}
+
+/* Navbar */
+.navbar, .navbar-brand a{
+    font-weight: bold;
+    text-shadow: 0 0.5px 0.5px rgba(0,0,0,0.6);
+    color: #fff;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #ccc;
 }

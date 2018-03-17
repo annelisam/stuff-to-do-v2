@@ -18,7 +18,11 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
+<<<<<<< Updated upstream
         isUrl: true,
+=======
+        // isUrl: true,
+>>>>>>> Stashed changes
       }
     },
     date: {
@@ -65,7 +69,10 @@ module.exports = (sequelize, DataTypes) => {
 
   theEvent.associate = (models) => {
     models.Event.belongsTo(models.User, {
+<<<<<<< Updated upstream
       onDelete: "CASCADE",
+=======
+>>>>>>> Stashed changes
       foreignKey: {
         allowNull: false,
       }

@@ -1,7 +1,6 @@
 const db = require('../models/index.js');
 
-async function get(req, res) { 
-  console.log(db);
+async function get(req, res) {
   try {
     let events;
     if(req.params) {
@@ -20,11 +19,12 @@ async function get(req, res) {
 }
 
 async function post(req, res) {
-  const {name, description, urlPhoto, date, address, city, state, zipCode} = req.body;
+  const {name, description, urlPhoto, date, address, city, state, zipCode, UserId} = req.body;
   const newEvent = {
     name, 
     description,
     urlPhoto,
+    UserId,
     date,    
     address,
     city,
@@ -33,8 +33,7 @@ async function post(req, res) {
   }
   try {
     const eventData = await db.Event.create(newEvent);
-
-    res.status(200).json(evetnData);
+    res.status(200).json(eventData);
   } catch (error) {
     if (error.message) {
       console.error(error.message);

@@ -14,7 +14,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.use(eventRoutes);
+<<<<<<< Updated upstream
 // app.use(userRoutes);
+=======
+app.use(userRoutes);
+>>>>>>> Stashed changes
 
 db.sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, function() {

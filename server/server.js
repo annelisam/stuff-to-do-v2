@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 3000;
 const db = require('./models/index.js');
 
 app.use(express.static(path.join(__dirname, '../client')));
-app.use(express.static(path.join(__dirname, './views')));
+// app.use(express.static(path.join(__dirname, './views'))); // commented out like cats app exphbs example.
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());

@@ -60,6 +60,14 @@ module.exports = (sequelize, DataTypes) => {
       validate: {
         min: 5,
       }
+    },
+    lat: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    lat: {
+      type: DataTypes.STRING,
+      allowNull: false,
     }
   })
 

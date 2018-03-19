@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-  let Events = sequelize.define('Event', {
+  let theEvent = sequelize.define('Event', {
     name: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -18,28 +18,67 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
+<<<<<<< Updated upstream
         isUrl: true,
+=======
+        // isUrl: true,
+>>>>>>> Stashed changes
       }
     },
     date: {
-      type: Datatypes.STRING,
+      type: DataTypes.STRING,
       allowNull: false,
       validate: {
         isDate: true,
       }
+    },
+    upVotes: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 0,
+    },
+    address: {
+      type: DataTypes.STRING, 
+      allowNull: false,
+      validate: {
+        min: 3,
+      }
+    },
+    city: {
+      type: DataTypes.STRING, 
+      allowNull: false, 
+      validate: {
+        min: 2,
+      }
+    },
+    state: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        min: 2,
+      }
+    },
+    zipCode: {
+      type: DataTypes.STRING, 
+      allowNull: false,
+      validate: {
+        min: 5,
+      }
     }
   })
 
-  Events.associate = (models) => {
+  theEvent.associate = (models) => {
     models.Event.belongsTo(models.User, {
+<<<<<<< Updated upstream
       onDelete: "CASCADE",
+=======
+>>>>>>> Stashed changes
       foreignKey: {
         allowNull: false,
       }
     })
-    
+
   }
-
-
-  return Event;
+  
+  return theEvent;
 }

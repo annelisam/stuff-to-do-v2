@@ -1,17 +1,24 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const routes = require('./routes/routes.js');
+const eventRoutes = require('./routes/eventRouter.js');
+const userRoutes = require('./routes/userRouter.js');
+const path = require('path');
 
 const app = express();
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3000;
 
 const db = require('./models/index.js');
 
+app.use(express.static(path.join(__dirname, '../client')));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(eventsRoutes);
-app.use(usersRoutes);
-app.use(express.static('../client'));
+
+app.use(eventRoutes);
+<<<<<<< Updated upstream
+// app.use(userRoutes);
+=======
+app.use(userRoutes);
+>>>>>>> Stashed changes
 
 db.sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, function() {

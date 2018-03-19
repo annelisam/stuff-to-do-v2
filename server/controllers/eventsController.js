@@ -1,4 +1,5 @@
 const db = require('../models/index.js');
+const request = require('request');
 
 async function get(req, res) {
   try {
@@ -20,27 +21,32 @@ async function get(req, res) {
 
 async function post(req, res) {
   const {name, description, urlPhoto, date, address, city, state, zipCode, UserId} = req.body;
-  const newEvent = {
-    name, 
-    description,
-    urlPhoto,
-    UserId,
-    date,    
-    address,
-    city,
-    state,
-    zipCode,
-  }
-  try {
-    const eventData = await db.Event.create(newEvent);
-    res.status(200).json(eventData);
-  } catch (error) {
-    if (error.message) {
-      console.error(error.message);
+  const fullAddress = address + ' ' + city + ' ' + state + ' ' + zipCode;
+  const geoLocation = request(`https://maps.googleapis.com/maps/api/geocode/json?address=${fullAddress}&key=AIzaSyDsfnjM905ho9lC-EwFVAI8oOUivynhT9g`, (error, response, body) => {
+    const newEvent = {
+      name, 
+      description,
+      urlPhoto,
+      UserId,
+      date,    
+      address,
+      city,
+      state,
+      zipCode,
+      lat: response.geometry.location.lat,
+      lng: response.geometry.location.lng,
     }
-    console.log(err);
-    res.status(500).send('There was an error on the server');
-  }
+    try {
+      const eventData = await db.Event.create(newEvent);
+      res.status(200).json(eventData);
+    } catch (error) {
+      if (error.message) {
+        console.error(error.message);
+      }
+      console.log(err);
+      res.status(500).send('There was an error on the server');
+    }
+  })
 }
 
 async function put(req, res) {

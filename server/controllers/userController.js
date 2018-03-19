@@ -2,14 +2,6 @@ const db = require('../models/index.js');
 
 async function get(req, res) {
   try {
-<<<<<<< Updated upstream
-    console.log(db.User);    
-    const user = db.User.findOne({ 
-      where: { email: req.body.email },
-      include: [db.Event],
-    })
-    res.status(200).send(user);
-=======
     const email = req.params.id
     if (req.params.id) {
       const user = await db.User.findOne({ 
@@ -21,7 +13,6 @@ async function get(req, res) {
       const user = await db.User.findAll({include: [db.Event]});
       res.status(200).send(user);
     }
->>>>>>> Stashed changes
   } catch (error) {
     if (error.message) {
       console.error(error.message);
@@ -38,10 +29,6 @@ async function post(req, res) {
     email, 
     company,
   }
-<<<<<<< Updated upstream
-=======
-  console.log(newUser);
->>>>>>> Stashed changes
   try {
     const data = await db.User.create(newUser);
     res.status(200).json(data);

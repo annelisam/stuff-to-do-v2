@@ -29,7 +29,6 @@ async function post(req, res) {
     email, 
     company,
   }
-  console.log(newUser);
   try {
     const data = await db.User.create(newUser);
     res.status(200).json(data);

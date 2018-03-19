@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+  <h1>My First Google Map</h1>
+
+  <div id="googleMap" style="width:100%;height:400px;"></div>
+
+  <script>
+
+    const events = [
+      {
+        name: 'event1',
+        lat: 30.199920,
+        lng: 110.480850,
+      },
+      {
+        name: 'event2',
+        lat: 34.199920,
+        lng: 118.480850,
+      },
+      {
+        name: 'event3',
+        lat: 36.199920,
+        lng: 118.480850,
+      },
+      {
+        name: 'event4',
+        lat: 37.199920,
+        lng: 120.480850,
+      }
+    ]
+
+    function myMap() {
+      const location =  {lat: 34.195615, lng: 118.480406};
+      var mapProp = {
+        center: new google.maps.LatLng(location.lat, location.lng),
+        zoom: 5,
+      };
+      var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+      events.forEach(eventData => {
+        const loc = new google.maps.LatLng(eventData.lat, eventData.lng); 
+        const marker = new google.maps.Marker({
+          position: loc,
+        })
+        marker.setMap(map);
+      });
+    }
+
+  </script>
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDsfnjM905ho9lC-EwFVAI8oOUivynhT9g&callback=myMap"></script>
+
+</body>
+</html>

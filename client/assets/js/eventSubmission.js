@@ -4,7 +4,7 @@
 // edit existing = patch
 // delete existing = delete
 
-// be sure to add some event.preventDefault(); lines on any submit button types
+// be sure to add some event.preventDefault(); lines on any submit button types later
 $(function() {
   // stuff to do when submit event button clicked
   $('.submitEventButton').on('click', function(event) {

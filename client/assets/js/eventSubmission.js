@@ -9,6 +9,8 @@ $(function() {
   // stuff to do when submit event button clicked
   // grab these data values to pass into object to be posted to database w/ AJAX POST call
   $('.submitEventButton').on('click', function(event) {
+    event.preventDefault();
+    // !!!change these $(this).data things to be the class/id names of the fields that the info is entered into!!!
     // let eventId = $(this).data('eventId'); id will be auto-incremented(?)
     let eventName = $(this).data('eventName');
     let eventInfo = $(this).data('eventInfo');
@@ -19,9 +21,9 @@ $(function() {
     let eventCity = $(this).data('eventCity');
     let eventState = $(this).data('eventState');
     let eventZip = $(this).data('eventZip');
-    let eventCreatedAt = $(this).data('eventCreatedAt');
-    let eventUpdatedAt = $(this).data('eventUpdatedAt');
-    let eventCreator = $(this).data('eventCreator');
+    // let eventCreatedAt = $(this).data('eventCreatedAt');
+    // let eventUpdatedAt = $(this).data('eventUpdatedAt');
+    // let eventCreator = $(this).data('eventCreator');
 
     let eventFullDescription = {
       // id: eventId, id will be auto-incremented(?)
@@ -34,9 +36,9 @@ $(function() {
       city: eventCity,
       state: eventState,
       zipCode: eventZip,
-      createdAt: eventCreatedAt,
-      updatedAt: eventUpdatedAt,
-      UserId: eventCreator,
+      // createdAt: eventCreatedAt,
+      // updatedAt: eventUpdatedAt,
+      // UserId: eventCreator,
     };
     // post the eventInfo to create new event
     $.ajax('/api/events', {
@@ -51,18 +53,18 @@ $(function() {
   });
   
   // stuff to do when edit event button clicked
+  // make a GET to pull the existing event data & populate the user input pop-up.
+  // then make a PUT w/ whatever the unchanged existing data & updated data are.
   $('.editEventButton').on('click', function(event) {
-    // have all possible variables & then put in some kind of (if !eventDetail) {don't include in the object passed to patch route?}
     let eventId = $(this).data('eventId');
     // other lets to hold event info
     // put those here later
     let eventDescriptionEdits = {
-      // make an object w/ the details to edit.
-      // maybe make it an empty object, then use if(!particularEventDetail) {don't include} else {make that key:value pair};
+      // make an object w/ the edited data
     };
     // patch the event info to just edit parts of the event's details
     $.ajax('/api/events/' + eventId, {
-      type: 'PATCH',
+      type: 'PUT',
       data: eventDescriptionEdits
     }).then(
       function() {

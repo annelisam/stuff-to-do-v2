@@ -22,7 +22,7 @@ async function get(req, res) {
 async function post(req, res) {
   const {name, description, urlPhoto, date, address, city, state, zipCode, UserId} = req.body;
   const fullAddress = address + ' ' + city + ' ' + state + ' ' + zipCode;
-  const geoLocation = request(`https://maps.googleapis.com/maps/api/geocode/json?address=${fullAddress}&key=AIzaSyDsfnjM905ho9lC-EwFVAI8oOUivynhT9g`, (error, response, body) => {
+  const geoLocation = request(`https://maps.googleapis.com/maps/api/geocode/json?address=${fullAddress}&key=AIzaSyDsfnjM905ho9lC-EwFVAI8oOUivynhT9g`, async(error, response, body) => {
     const newEvent = {
       name, 
       description,

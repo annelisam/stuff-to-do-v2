@@ -189,37 +189,12 @@
 
 </style>
 
-{{!-- <div class="main-header">
-    <div class="container">
-            <h3 id="landing-header" class="display-3 text-center">so much to do, so much to see.</h3>
-    </div>
-        <div class="container">
-        <div class="text-center">
-            <form>
-            <input id="landing-input" placeholder="so what's wrong with taking the back streets?"></input>
-            </form>
-        </div>
-    </div>
-</div> --}}
-
 {{!-- Right side --}}
 <div id="info">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
                 <div id="filters">
-                
-                {{!-- Card example
-                    <div class="card">
-                        <img class="card-img-top" src="https://static.rukkus.com/venue/images/STAPLES_Center-100.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div> --}}
-
-                {{!-- Card example --}}
                     {{#each events}}
                         <div class="card" data-id="{{ id }}">
                             <img class="card-img-top" src="{{ urlPhoto }}" alt="Card image cap">
@@ -231,8 +206,6 @@
                             </div>
                         </div>
                     {{/each}}
-                
-                
                 </div>
             </div>
         </div>
@@ -242,4 +215,9 @@
 {{!-- Map --}}
 <div id="map" style="overflow: hidden;"></div>
 
-<script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="../assets/js/results.js"></script>
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDsfnjM905ho9lC-EwFVAI8oOUivynhT9g&callback=initMap">
+</script>
+

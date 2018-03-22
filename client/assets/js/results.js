@@ -2,7 +2,7 @@ async function initMap() {
   const allEvents = await getAllEvents(); 
   const location = JSON.parse(localStorage.getItem('location'));
 
-  const uluru = {lat: location.lat, lng: location.lng};
+  // const uluru = {lat: location.lat, lng: location.lng};
   const uluru = {lat: 34.200432, lng: -118.478111};
   const map = new google.maps.Map(document.getElementById('map'), {
     zoom: 11,
@@ -27,6 +27,7 @@ function getAllEvents() {
     $.ajax('/api/events', {
       type: 'GET',
     }).then(events => {
+      // console.log(events);
       resolve(events);
     })
   })

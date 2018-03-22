@@ -12,9 +12,8 @@ Bored? stuff-to-do-v2 is here to help.
 ### Installation/Setup
 
 1. use `npm install` to install dependencies
-2. create the database & tables by running the `dbSchema.sql` file
-3. populate table w/ placeholder data by running the `seeds.sql` file
-4. use `npm run` to start server
+2. create the database & populate table w/ placeholder data by running the `dbSchema.sql` file
+3. use `npm start` to start server
 
 ### Use
 

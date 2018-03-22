@@ -4,12 +4,13 @@ const request = require('request');
 async function get(req, res) {
   try {
     let events;
-    if(req.params) {
+    if(req.params.id) {
       events = await db.Event.findAll({ where: { id: req.params.id } });
     } else {
       events = await db.Event.findAll({});            
     }
-    res.status(200).send(events);
+    console.log(events);
+    res.status(200).render('results', {events});
   } catch (error) {
     if (error.message) {
       console.error(error.message);
@@ -22,7 +23,7 @@ async function get(req, res) {
 async function post(req, res) {
   const {name, description, urlPhoto, date, address, city, state, zipCode, UserId} = req.body;
   const fullAddress = address + ' ' + city + ' ' + state + ' ' + zipCode;
-  const geoLocation = request(`https://maps.googleapis.com/maps/api/geocode/json?address=${fullAddress}&key=AIzaSyDsfnjM905ho9lC-EwFVAI8oOUivynhT9g`, async(error, response, body) => {
+  const geoLocation = request(`https://maps.googleapis.com/maps/api/geocode/json?address=${fullAddress}&key=AIzaSyDsfnjM905ho9lC-EwFVAI8oOUivynhT9g`, async (error, response, body) => {
     const newEvent = {
       name, 
       description,

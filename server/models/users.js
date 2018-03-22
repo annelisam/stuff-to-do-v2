@@ -29,13 +29,9 @@ module.exports = (sequelize, DataTypes) => {
   })
 
   User.associate = (models) => {
-<<<<<<< Updated upstream
-    models.User.hasMany(models.Event);
-=======
     models.User.hasMany(models.Event, {
       onDelete: "cascade",
     });
->>>>>>> Stashed changes
   }
 
   return User;

@@ -13,19 +13,9 @@ module.exports = (sequelize, DataTypes) => {
       validate: {
         isEmail: true,
       }
-    },
-    company: {
-      type: DataTypes.STRING, 
-      allowNull: true,
-      defaultValue: 'N/A',
-    },
-    upVotes: {
-      type: DataTypes.JSON,
-      allowNull: true,
-      defaultValue: '[]',
     }
   }, {
-    timeStamp: true,
+    timestamps: false,
   })
 
   User.associate = (models) => {

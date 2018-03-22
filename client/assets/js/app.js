@@ -1,65 +1,28 @@
-$('.search').click(async () => {
-  try {
-    const city = $('.cityName').val().trim();
-    const cityLocaion = getLatLng(city);
-    const allEvents = await getAllEvents();
-    initmap(allEvents, cityLocaion);
-  } catch(error) {
-    if (error.message) {
-      console.error(error.message);
+$('.input').keypress(async function (e) {
+  if(e.which == 13) {
+    try {
+      const city = $('.cityName').val().trim();
+      const cityLocaion = await getLatLng(city);
+      console.log(cityLocaion);
+      localStorage.setItem('location', JSON.stringify(cityLocaion));
+      window.location.replace('/events');
+    } catch(error) {
+      if (error.message) {
+        console.error(error.message);
+      }
+      console.error(error);
     }
-    console.error(error);
   }
 })
 
-function getAllEvents() {
-  $.ajax('/api/events', {
-    type: 'GET',
-  }).then(events => {
-    return events;
+function getLatLng(city) {
+  return new Promise((resolve, reject) => {
+    $.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${city}&key=AIzaSyDsfnjM905ho9lC-EwFVAI8oOUivynhT9g`, (error, response, body) =>  {
+      const location = {
+        lat: body.responseJSON.results[0].geometry.location.lat,
+        lng: body.responseJSON.results[0].geometry.location.lng,
+      }
+      resolve(location);
+    })  
   })
 }
-
-const events = [
-  {
-    name: 'event1',
-    lat: 30.199920,
-    lng: 110.480850,
-  },
-  {
-    name: 'event2',
-    lat: 34.199920,
-    lng: 118.480850,
-  },
-  {
-    name: 'event3',
-    lat: 36.199920,
-    lng: 118.480850,
-  },
-  {
-    name: 'event4',
-    lat: 37.199920,
-    lng: 120.480850,
-  }
-]
-
-function initMap(events, location) {
-  var uluru = location;
-  var map = new google.maps.Map($('#map'), {
-    zoom: 4,
-    center: uluru
-  });
-
-  events.forEach(eventData => {
-    new google.maps.Marker({
-      position: {lat: eventData.lon, lng: eventData.lng},
-      map: map,
-    })
-  });
-}
-
-function getLatLng(city) {
-
-}
-
-initMap(events, {lat: 34.195615, lng: 118.480406});

@@ -21,8 +21,8 @@ module.exports = (sequelize, DataTypes) => {
         isUrl: true,
       }
     },
-    date: {
-      type: DataTypes.STRING,
+    dateTime: {
+      type: DataTypes.DATE,
       allowNull: false,
       validate: {
         isDate: true,
@@ -60,7 +60,17 @@ module.exports = (sequelize, DataTypes) => {
       validate: {
         min: 5,
       }
+    },
+    lat: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    lng: {
+      type: DataTypes.STRING,
+      allowNull: false,
     }
+  }, {
+    timestamps: false,
   })
 
   theEvent.associate = (models) => {

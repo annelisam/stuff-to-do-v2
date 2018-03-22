@@ -126,3 +126,23 @@ html, body {
   margin: 0;
   padding: 0;
 }
+
+/* Results page with map  */
+#results-content {
+    background-color: #eee;
+    position: absolute;
+    width: 560px;
+    top: 62px;
+    left: 0;
+    bottom: 0;
+    overflow: hidden;
+}
+
+.slide-pane {
+    width: 560px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    transition: left 0.35s;
+}
+

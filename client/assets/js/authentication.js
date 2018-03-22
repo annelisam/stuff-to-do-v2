@@ -1,6 +1,6 @@
 var database;
 
-$(document).ready(function(){
+$(document).ready(function () {
   var config = {
     apiKey: "AIzaSyBKdOWnSPjOT1-mU1VCqhbcXNeOBi4bslw",
     authDomain: "stuff-2-do.firebaseapp.com",
@@ -26,45 +26,45 @@ $(document).ready(function(){
 
   //user create account with email
   //submit = Join Now button 
-  $("#register-submit").on("click", function(event){
+  $("#register-submit").on("click", function (event) {
     event.preventDefault();
-    var email= $("#email").val();
-    var password= $("#password").val();
+    var email = $("#email").val();
+    var password = $("#password").val();
     var repeatPassword = $("#repeat-password").val();
-    if(password === repeatPassword){
+    if (password === repeatPassword) {
       firebase.auth().createUserWithEmailAndPassword(email, password)
-      .then(function(user){
-        const user2 = {
-          name: user.displayName,
-          email: user.email
-        }
-        console.log(user);
-        $.ajax({
-          method: 'POST',
-          url: '/api/user',
-          data: user2,
+        .then(function (user) {
+          const user2 = {
+            name: user.displayName,
+            email: user.email
+          }
+          console.log(user);
+          $.ajax({
+            method: 'POST',
+            url: '/api/user',
+            data: user2,
+          })
         })
-      })
-      .catch(function(error) {
-        console.log(error);
-      });
+        .catch(function (error) {
+          console.log(error);
+        });
     }
     // Ajax call --> post 
     // router.route('/api/user').post(userController.post);
   });
 
   //user login with email
-  $("#sign-in-submit").on("click", function(){
-    event.preventDefault();    
+  $("#sign-in-submit").on("click", function () {
+    event.preventDefault();
     var email = $("#sign-in-email").val();
     var password = $("#sign-in-password").val();
     firebase.auth().signInWithEmailAndPassword(email, password)
-    .then(function(user){
-      console.log(user);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+      .then(function (user) {
+        console.log(user);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   });
 
   // google login
@@ -80,12 +80,12 @@ $(document).ready(function(){
   });
 
   //sign out
-  $("#sign-out").on("click", function(){
-    event.preventDefault();    
-    firebase.auth().signOut().then(function() {
+  $("#sign-out").on("click", function () {
+    event.preventDefault();
+    firebase.auth().signOut().then(function () {
       // console.log("signed out!");
-      $(".display-user").empty();  
-    }).catch(function(error) {
+      $(".display-user").empty();
+    }).catch(function (error) {
       console.log("something happened with sign out.");
     });
   });

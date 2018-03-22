@@ -5,10 +5,10 @@
 // delete existing = delete
 
 // be sure to add some event.preventDefault(); lines on any submit button types later
-$(function() {
+$(function () {
   // stuff to do when submit event button clicked
   // grab these data values to pass into object to be posted to database w/ AJAX POST call
-  $('.submitEventButton').on('click', function(event) {
+  $('.submitEventButton').on('click', function (event) {
     event.preventDefault();
     // !!!change these $(this).data things to be the class/id names of the fields that the info is entered into!!!
     // let eventId = $(this).data('eventId'); id will be auto-incremented(?)
@@ -45,17 +45,17 @@ $(function() {
       type: 'POST',
       data: eventFullDescription
     }).then(
-      function() {
+      function () {
         console.log(`posted new event: ${eventFullDescription}`);
         location.reload();
       }
     );
   });
-  
+
   // stuff to do when edit event button clicked
   // make a GET to pull the existing event data & populate the user input pop-up.
   // then make a PUT w/ whatever the unchanged existing data & updated data are.
-  $('.editEventButton').on('click', function(event) {
+  $('.editEventButton').on('click', function (event) {
     let eventId = $(this).data('eventId');
     // other lets to hold event info
     // put those here later
@@ -67,7 +67,7 @@ $(function() {
       type: 'PUT',
       data: eventDescriptionEdits
     }).then(
-      function() {
+      function () {
         console.log(`updated event details: ${eventDescriptionEdits}`);
         location.reload();
       }
@@ -75,13 +75,13 @@ $(function() {
   });
 
   // stuff to do when delete event button clicked
-  $('.deleteEventButton').on('click', function(event) {
+  $('.deleteEventButton').on('click', function (event) {
     let eventId = $(this).data('eventId');
     // send delete request
     $.ajax('/api/events/' + eventId, {
       type: 'DELETE',
     }).then(
-      function() {
+      function () {
         console.log(`deleted event id#: ${eventId}`);
         location.reload();
       }

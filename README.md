@@ -1,15 +1,11 @@
 # stuff-to-do-v2
 
----
-
 Bored? stuff-to-do-v2 is here to help.
 
 * search events in your area & view them on a map.
 * add your own events.
 * find popular events by checking upvote scores.
 * do other cool stuff.
-
----
 
 ## Getting Started
 

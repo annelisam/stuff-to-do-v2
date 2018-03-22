@@ -210,24 +210,27 @@
                 <div id="filters">
                 
                 {{!-- Card example --}}
-                    <div class="card">
+                    {{!-- <div class="card">
                         <img class="card-img-top" src="https://static.rukkus.com/venue/images/STAPLES_Center-100.jpg" alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                             <a href="#" class="btn btn-primary">Go somewhere</a>
                         </div>
-                    </div>
+                    </div> --}}
 
                 {{!-- Card example --}}
-                    <div class="card">
-                        <img class="card-img-top" src="https://static.rukkus.com/venue/images/STAPLES_Center-100.jpg" alt="Card image cap">
+                   {{#each events}}
+                    <div class="card" data-id="{{ id }}">
+                        <img class="card-img-top" src="{{ urlPhoto }}" alt="Card image cap">
                         <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <h5 class="card-title">{{ name }}</h5>
+                            <p class="card-text">{{ description }}</p>
+                            <p class="card-text">{{ date }}</p>            
+                            <a href="#" class="btn btn-primary">Upvote {{ upVotes }}</a>
                         </div>
                     </div>
+                    {{/each}}
                 
                 
                 </div>

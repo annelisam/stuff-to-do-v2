@@ -4,12 +4,13 @@ const request = require('request');
 async function get(req, res) {
   try {
     let events;
-    if(req.params) {
+    if(req.params.id) {
       events = await db.Event.findAll({ where: { id: req.params.id } });
     } else {
       events = await db.Event.findAll({});            
     }
-    res.status(200).send(events);
+    console.log(events);
+    res.status(200).render('results', {events});
   } catch (error) {
     if (error.message) {
       console.error(error.message);

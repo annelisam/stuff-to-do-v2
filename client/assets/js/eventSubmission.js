@@ -88,3 +88,22 @@ $(function() {
     );
   });
 });
+
+
+/*
+03/21/2018
+Notes of what still needs to be added:
+
+add create-event button to navbar -> make a modal pop up w/ event detail form.
+  -> event detail fields get filled out
+    -> submit button on detail form submits to the database
+
+  -> edit button on each event card for now, just to demo edit functionality
+    -> GET info from database & populate form w/ that, allow edits
+      -> then POST to overwrite previous entry
+
+  -> delete event button -> delete from database
+
+make modal add user info to database
+
+*/

@@ -1,5 +1,8 @@
 {{!-- For the left side with results --}}
-
+<head>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S"
+        crossorigin="anonymous">
+</head>
 <style>
 {{!-- Default page style --}}
     * {
@@ -77,30 +80,6 @@
     .main-content {
         margin-top: 100px;
         margin-bottom: 100px;
-    }
-
-
-    .card {
-        height: 200px auto;
-        margin-bottom: 25px;
-    }
-
-    .card-img-top {
-        object-fit: cover;
-        object-position: 100% 0;
-        width: auto;
-        height: 200px;
-    }
-    .card-title {
-        font-weight: 200px;
-        text-align: left;
-        font-size: 40px;
-    }
-
-    .options-card {
-        position: center;
-        margin: 15px;
-        border-radius: 25px; 
     }
 
     /* Navbar */
@@ -187,6 +166,43 @@
             color: #777;
         }
 
+        .card-img {
+        object-fit: cover;
+        object-position: 100% 0;
+        width: auto;
+        height: 200px;
+        opacity: 0.6;
+        }
+
+        .card-title {
+        text-shadow: 0 1px 1px rgba(0,0,0,0.6);
+        font-weight: lighter;
+        text-align: left;
+        font-size: 30px;
+        }
+
+        .card-text p{
+        padding-top: 10px;
+        font-size: 12px;
+        font-weight: lighter;
+
+
+        }
+
+        .card {
+        height: 300px auto;
+        margin-bottom: 25px;
+        background-color: #000;
+        border: none;
+        }
+
+        .options-card {
+        position: center;
+        margin: 15px;
+    }
+
+
+
 </style>
 
 {{!-- Right side --}}
@@ -196,13 +212,16 @@
             <div class="col-lg-12">
                 <div id="filters">
                     {{#each events}}
-                        <div class="card" data-id="{{ id }}">
-                            <img class="card-img-top" src="{{ urlPhoto }}" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ name }}</h5>
-                                <p class="card-text">{{ description }}</p>
-                                <p class="card-text">{{ date }}</p>            
-                                <a href="#" class="btn btn-primary">Upvote {{ upVotes }}</a>
+                        <div class="options-card card bg-dark text-white" data-id="{{ id }}">
+                            <img class="card-img" src="{{ urlPhoto }}" alt="Card image cap">
+                            <div class="card-img-overlay">
+                                <h5 class="card-title align-left">{{ name }}</h5>
+                                <p class="card-text"><i class="fas fa-map-pin"></i> {{ city }}</p>
+                                <p class="card-text"><i class="fas fa-calendar-alt"></i> {{ dateTime }}</p>
+        
+                                <a href="#" class="btn btn-info float-left">Info</a> 
+                                <a href="#" class="btn btn-danger float-right"><i class="fas fa-arrow-up"></i> {{ upVotes }}</a> 
+
                             </div>
                         </div>
                     {{/each}}

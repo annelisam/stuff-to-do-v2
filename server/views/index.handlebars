@@ -1,5 +1,8 @@
 {{!-- For the left side with results --}}
-
+<head>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S"
+        crossorigin="anonymous">
+</head>
 <style>
 {{!-- Default page style --}}
     * {
@@ -83,18 +86,6 @@
     .card {
         height: 200px auto;
         margin-bottom: 25px;
-    }
-
-    .card-img-top {
-        object-fit: cover;
-        object-position: 100% 0;
-        width: auto;
-        height: 200px;
-    }
-    .card-title {
-        font-weight: 200px;
-        text-align: left;
-        font-size: 40px;
     }
 
     .options-card {
@@ -187,6 +178,24 @@
             color: #777;
         }
 
+        .card-img {
+        object-fit: cover;
+        object-position: 100% 0;
+        width: auto;
+        height: 200px;
+        opacity: 0.9;
+        }
+
+        .card-title{
+        text-shadow: 0 0.5px 0.5px rgba(0,0,0,0.6);
+        text-align: center;
+        }
+
+        #searchEvents {
+        text-shadow: 0 0.5px 0.5px rgba(0,0,0,0.6);
+        font-size: 110%;
+        }
+
 </style>
 
 <div class="main-header">
@@ -197,10 +206,69 @@
         <div class="text-center">
             <form>
             <input id="landing-input" placeholder="so what's wrong with taking the back streets?"></input>
+            <a id="searchEvents" href="#"><i class="fas fa-search text-white"></i></a>
             </form>
+            
         </div>
     </div>
 </div>
+
+<!-- City Cards -->
+<div class="main-content">
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="text-center display-4">Trending Now</h1>
+            <hr>
+        </div>
+            <div class="col-sm-6">
+                <a href="#">
+                    <div class="options-card card text-white">
+                            <img class="card-img" src="../assets/images/losangeles.jpg" alt="Card image">
+                            <div class="card-img-overlay">
+                              <h5 class="card-title display-5">Los Angeles</h5>
+                            </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-sm-6">
+                <a href="#">
+                    <div class="options-card card text-white">
+                            <img class="card-img" src="../assets/images/newyork.jpg" alt="Card image">
+                            <div class="card-img-overlay">
+                              <h5 class="card-title display-5">New York</h5>
+                            </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-sm-6">
+                    <a href="#">
+                        <div class="options-card card text-white">
+                                <img class="card-img" src="../assets/images/miami.jpg" style="height: 200px" alt="Card image">
+                                <div class="card-img-overlay">
+                                  <h5 class="card-title display-5">Miami</h5>
+                                </div>
+                        </div>
+                    </a>
+            </div>
+
+            <div class="col-sm-6">
+                    <a href="#">
+                        <div class="options-card card text-white">
+                                <img class="card-img" src="../assets/images/chicago.jpg" alt="Card image">
+                                <div class="card-img-overlay">
+                                  <h5 class="card-title display-5">Chicago</h5>
+                                </div>
+                        </div>
+                    </a>
+            </div>
+    </div>
+</div>  
+</div>
+</div>
+
 
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbd_-Rgbd1wBHzIwMZrOvNOucWi5i9iHg&callback=initMap">
 </script>

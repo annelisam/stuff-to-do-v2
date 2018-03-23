@@ -28,6 +28,10 @@ async function post(req, res) {
     name, 
     email,
   }
+<<<<<<< HEAD
+  console.log(newUser);
+=======
+>>>>>>> 9d0154fbaa46e5e693fd81bae630004d6109d27b
   try {
     const data = await db.User.create(newUser);
     res.status(200).json(data);

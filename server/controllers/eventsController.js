@@ -3,14 +3,18 @@ const request = require('request');
 
 async function get(req, res) {
   try {
-    let events;
     if(req.params.id) {
-      events = await db.Event.findAll({ where: { id: req.params.id } });
+      const events = await db.Event.findAll({ where: { id: req.params.id } });
+      res.status(200).json(events);      
     } else {
-      events = await db.Event.findAll({});            
+      const lat = req.query.lat;
+      const lng = req.query.lng;
+      const events = await db.Event.findAll({});  
+      const sendEvents = events.filter(theEvent => {
+        return getDistanceFromLatLonInKm(lat, lng, theEvent.lat, theEvent.lng) < 200;
+      })
+      res.status(200).json(sendEvents);      
     }
-    console.log(events);
-    res.status(200).json(events);
   } catch (error) {
     if (error.message) {
       console.error(error.message);
@@ -51,16 +55,17 @@ async function post(req, res) {
 }
 
 async function put(req, res) {
-  const {name, description, urlPhoto, date, address, city, state, zipCode, id} = req.body;
+  const {name, description, urlPhoto, dateTime, address, city, state, zipCode, id, upVotes} = req.body;
   const updatedEvent = {
     name, 
     description,
     urlPhoto,
-    date,
+    dateTime,
     address,
     city,
     state,
     zipCode,
+    upVotes,
   }
 
   try {
@@ -78,6 +83,24 @@ async function put(req, res) {
     console.log(err);
     res.status(500).send('There was an error on the server');
   }
+}
+
+function getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
+  var R = 6371; // Radius of the earth in km
+  var dLat = deg2rad(lat2-lat1);  // deg2rad below
+  var dLon = deg2rad(lon2-lon1); 
+  var a = 
+    Math.sin(dLat/2) * Math.sin(dLat/2) +
+    Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * 
+    Math.sin(dLon/2) * Math.sin(dLon/2)
+    ; 
+  var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+  var d = R * c; // Distance in km
+  return d;
+}
+
+function deg2rad(deg) {
+  return deg * (Math.PI/180)
 }
 
 const eventsController = {

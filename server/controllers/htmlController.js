@@ -2,7 +2,7 @@ const db = require('../models/index.js');
 
 async function get(req, res) {
   try {
-    const allEvents = db.Events.findAll({});
+    const allEvents = await db.Event.findAll({});
     res.render('results', {allEvents});
   } catch(error) {
     if(error.message) {

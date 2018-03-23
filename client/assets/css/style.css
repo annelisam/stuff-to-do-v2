@@ -2,6 +2,11 @@
     padding-right: 10px;
 }
 
+.cancel {
+    background-color: #de5152;
+    color: white;
+}
+
 .login-modal {
     margin-bottom: 15px;
     padding-bottom: 10px;

@@ -3,7 +3,7 @@ $(document).ready(function() {
     if(event.which == 13) {
       try {
         const city = $('.landingInput').val().trim();
-        const cityLocaion = await getLatLng(city);
+        const cityLocaion = await getLatLng(city);git 
         localStorage.setItem('location', JSON.stringify(cityLocaion));
         $.get('/events?lat=' + cityLocation.lat + '&lng=' + cityLocation.lng);
       } catch(error) {

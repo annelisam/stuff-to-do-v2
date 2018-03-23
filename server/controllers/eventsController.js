@@ -10,7 +10,7 @@ async function get(req, res) {
       events = await db.Event.findAll({});            
     }
     console.log(events);
-    res.status(200).render('results', {events});
+    res.status(200).json(events);
   } catch (error) {
     if (error.message) {
       console.error(error.message);

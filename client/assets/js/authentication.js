@@ -47,6 +47,9 @@ $(document).ready(function(){
           url: '/api/user',
           data: user2,
         })
+        .done(function() {
+          $('#myModal').modal('hide');
+        })
       })
       .catch(function(error) {
         console.log(error);

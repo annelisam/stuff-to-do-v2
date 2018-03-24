@@ -159,14 +159,6 @@ padding: 0;
       color: #777;
   }
 
-  .card-img {
-  object-fit: cover;
-  object-position: 100% 0;
-  width: auto;
-  height: 200px;
-  opacity: 0.6;
-  }
-
   .card-title {
   text-shadow: 0 1px 1px rgba(0,0,0,0.6);
   font-weight: lighter;
@@ -200,7 +192,6 @@ padding: 0;
   width: auto;
   height: 300px;
   opacity: 0.6;
-  border-radius: 3px;
   }
 
   .card-title {

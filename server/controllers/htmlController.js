@@ -9,6 +9,7 @@ async function get(req, res) {
     const sendEvents = allEvents.filter(theEvent => {
       return getDistanceFromLatLonInKm(lat, lng, theEvent.lat, theEvent.lng) < 200;
     })
+    console.log(sendEvents);
     res.render('results', {events: sendEvents});
   } catch(error) {
     if(error.message) {

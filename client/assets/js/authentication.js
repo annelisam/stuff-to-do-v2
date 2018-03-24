@@ -1,6 +1,6 @@
 var database;
 
-$(document).ready(function(){
+$(document).ready(function () {
   $('#sign-out').hide();
 
   var config = {
@@ -14,7 +14,6 @@ $(document).ready(function(){
   firebase.initializeApp(config);
   database = firebase.database();
 
-  // get user profile information
   const user = firebase.auth().currentUser;
   var name, email, photoUrl, uid, emailVerified;
 
@@ -26,46 +25,40 @@ $(document).ready(function(){
     uid = user.uid;
   }
 
-  //user create account with email
-  //submit = Join Now button 
   $("#register-submit").on("click", function (event) {
     event.preventDefault();
     var name = $("#name").val();
-    var email= $("#email").val();
-    var password= $("#password").val();
+    var email = $("#email").val();
+    var password = $("#password").val();
     var repeatPassword = $("#repeat-password").val();
     if (password === repeatPassword) {
       firebase.auth().createUserWithEmailAndPassword(email, password)
-      .then(function(user){
-        const user2 = {
-          name: name,
-          email: user.email
-        }
-        $.ajax({
-          type: 'POST',
-          url: '/api/user',
-          data: user2,
+        .then(function (user) {
+          const user2 = {
+            name: name,
+            email: user.email
+          }
+          $.ajax({
+            type: 'POST',
+            url: '/api/user',
+            data: user2,
+          })
+            .done(function () {
+              $('#myModal').modal('hide');
+              $('#reg-login').hide();
+              $('#sign-out').show();
+            })
         })
-        .done(function() {
-          $('#myModal').modal('hide');
-          $('#reg-login').hide();
-          $('#sign-out').show();
-        })
-      })
-      .catch(function(error) {
-        console.log(error);
-      });
+        .catch(function (error) {
+          console.error(error);
+        });
     }
-    // Ajax call --> post 
-    // router.route('/api/user').post(userController.post);
   });
 
-  // cancel
-  $('#cancel').click(function() {
+  $('#cancel').click(function () {
     $('#myModal').modal('hide');
   });
 
-  //user login with email
   $("#sign-in-submit").on("click", function () {
     event.preventDefault();
     var email = $("#sign-in-email").val();
@@ -75,36 +68,31 @@ $(document).ready(function(){
         console.log(user);
       })
       .catch(function (error) {
-        console.log(error);
+        console.error(error);
       });
   });
 
-  // google login
   $("#google").on("click", function () {
     var provider = new firebase.auth.GoogleAuthProvider();
     firebase.auth().signInWithRedirect(provider);
   });
 
-  //facebook login
   $("#facebook").on("click", function () {
     var provider = new firebase.auth.FacebookAuthProvider();
     firebase.auth().signInWithRedirect(provider);
   });
 
-  //sign out
   $("#sign-out").on("click", function () {
     event.preventDefault();
     firebase.auth().signOut().then(function () {
-      // console.log("signed out!");
       $(".display-user").empty();
       $('#sign-out').hide();
-      $('#reg-login').show();  
-    }).catch(function(error) {
-      console.log("something happened with sign out.");
+      $('#reg-login').show();
+    }).catch(function (error) {
+      console.error("something happened with sign out.");
     });
   });
 
-  //listens for changes to user sign in status
   firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
       $(".display-user").empty();
@@ -114,5 +102,4 @@ $(document).ready(function(){
       console.log("no user!");
     }
   });
-
 });

@@ -24,23 +24,14 @@ p {
   padding-top: 100px;
   position: relative;
   font-size: 25px;
-
-  /* The image used */
   background-image: url(https://images.unsplash.com/photo-1502786403187-735311c54e9d?ixlib=rb-0.3.5&s=07c480f04fe20dd167072aad51961499&auto=format&fit=crop&w=2850&q=80);
-
-  /* Full height */
   height: 100%; 
   height: 702px;
-
-  /* Create the parallax scrolling effect */
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-
 }
-
-/* Landing header */
 
 #landing-header {
   padding-top: 200px;
@@ -62,23 +53,21 @@ p {
   height: 50px;
   font-size: 18px;
   padding-left: 10px;
-  opacity: 0.8
+  opacity: 0.8;
 }
 
 #landing-input input::placeholder {
   color: #777;
   text-align: left;
-  font-size: 18px
+  font-size: 18px;
 }
 
-/* Main Content */
 .main-content {
   margin-top: 100px;
   margin-bottom: 100px;
 }
 
-/* Navbar */
-.navbar, .navbar-brand a{
+.navbar, .navbar-brand a {
   color: #fff;
 }
 
@@ -94,16 +83,11 @@ a:hover {
   text-decoration: none;
 }
 
-/* Always set the map height explicitly to define the size of the div
-* element that contains the map. */
-
-/* Optional: Makes the sample page fill the window. */
 html, body {
-height: 100%;
-margin: 0;
-padding: 0;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
-
 
 .slide-pane {
   width: 560px;
@@ -113,74 +97,66 @@ padding: 0;
   transition: left 0.35s;
 }
 
-{{!-- Results page style --}}
+#map {
+  height: 100%;
+  width: 60%;
+  float: right;
+  clear: top;
+}
 
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
 
-  /* Always set the map height explicitly to define the size of the div
-  * element that contains the map. */
-  #map {
-      height: 100%;
-      width: 60%;
-      float: right;
-      clear: top;
-  }
-  /* Optional: Makes the sample page fill the window. */
-  html, body {
-      height: 100%;
-      margin: 0;
-      padding: 0;
-  }
+#info {
+  height: 100%;
+  width: 40%;
+  float: left;
+  background-color:#f8f9fa;
+  border-right: 1px solid #eeeeee; 
+  overflow-y: scroll;
+  position: absolute;
+  width: 40%;
+  top: 50px;
+  left: 0;
+  bottom: 0;
+}
 
-  #info {
-      height: 100%;
-      width: 40%;
-      float: left;
-      background-color:#f8f9fa;
-      border-right: 1px solid #eeeeee; 
-      overflow-y: scroll;
-      position: absolute;
-      width: 40%;
-      top: 50px;
-      left: 0;
-      bottom: 0;
-  }
+#filters {
+  background-color: #f8f9fa;
+  font-weight: bolder;
+}
 
-  #filters {
-      background-color: #f8f9fa;
-      font-weight: bolder;
-  }
+#results {
+  padding-top: 25px;
+}
 
-  #results {
-      padding-top: 25px;
-  }
+.dropdown a{
+  color: #777;
+}
 
-  .dropdown a{
-      color: #777;
-  }
-
-  .card-title {
+.card-title {
   text-shadow: 0 1px 1px rgba(0,0,0,0.6);
   font-weight: lighter;
   text-align: left;
   font-size: 30px;
-  }
+}
 
-  .card-text p{
+.card-text p {
   padding-top: 10px;
   font-size: 12px;
   font-weight: lighter;
+}
 
-
-  }
-
-  .card {
+.card {
   height: 250px auto;
-  /* margin-bottom: 25px; */
   background-color: #000;
   border: none;
-  }
+}
 
-  .options-card {
+.options-card {
   position: center;
   margin: 15px;
 }
@@ -191,38 +167,35 @@ padding: 0;
   width: auto;
   height: 250px;
   opacity: 0.6;
-  }
+}
 
-  .card-title {
+.card-title {
   text-shadow: 0 1px 1px rgba(0,0,0,0.6);
   font-weight: lighter;
   text-align: left;
   font-size: 30px;
-  }
+}
 
-  .results-card h5 {
-    font-size: 30px;
-    text-align: left;
-  }
+.results-card h5 {
+  font-size: 30px;
+  text-align: left;
+}
 
-  .card-text p{
+.card-text p {
   padding-top: 10px;
   font-size: 12px;
   font-weight: lighter;
   text-align: left;
+}
 
-
-  }
-
-  .card {
+.card {
   height: 250px auto;
-  /* margin-bottom: 10px; */
   background-color: #000;
   border: none;
   border-radius: 10px;
-  }
+}
 
-  .results-card {
+.results-card {
   margin: 10px;
   border: none;
   height: 250px auto;

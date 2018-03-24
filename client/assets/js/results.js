@@ -1,9 +1,6 @@
 async function initMap() {
   const location = JSON.parse(localStorage.getItem('location')); 
-  console.log(location); 
   const allEvents = await getAllEvents(location);
-
-  // const uluru = {lat: location.lat, lng: location.lng};
   const uluru = location;
   const map = new google.maps.Map(document.getElementById('map'), {
     zoom: 10,
@@ -174,11 +171,10 @@ async function initMap() {
     const marker = new google.maps.Marker({
       position: eventLocation,
       eventInfo: eventData,
-    })
+    });
     marker.addListener('click', function () {
-      // create functionality for when user clicks on marker to open up the event details
       console.log(this);
-    })
+    });
     marker.setMap(map);
   });
 }
@@ -191,20 +187,20 @@ function getAllEvents(location) {
       $.get('/api/events?lat=' + lat + '&lng=' + lng)    
       .then(events => {
         resolve(events);
-      })
+      });
     } else {
       const lat = 34.065266;
       const lng = -118.250068;
       $.get('/api/events?lat=' + lat + '&lng=' + lng)    
       .then(events => {
         resolve(events);
-      })
+      });
     }
-  })
+  });
 }
 
 $('.upVote').click(function(e) {
-  e.preventDefault;
+  e.preventDefault();
   const theEvent = $(this)[0].attributes[2].value;
   $.get('/api/events/' + theEvent, (data) => {
     const searchedEvent = data[0];
@@ -221,7 +217,7 @@ $('.upVote').click(function(e) {
       upVotes: searchedEvent.upVotes + 1,
       urlPhoto: searchedEvent.urlPhoto,
       zipCode: searchedEvent.zipCode,
-    }
+    };
 
     $.ajax({
       type: 'PUT',
@@ -230,6 +226,6 @@ $('.upVote').click(function(e) {
     })
     .done(function(data) {
       location.reload();
-    })
-  })
-})
+    });
+  });
+});

@@ -71,16 +71,14 @@ module.exports = (sequelize, DataTypes) => {
     }
   }, {
       timestamps: false,
-    })
+    });
 
   theEvent.associate = (models) => {
     models.Event.belongsTo(models.User, {
       foreignKey: {
         allowNull: false,
       }
-    })
-
+    });
   }
-
   return theEvent;
 }

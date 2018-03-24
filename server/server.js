@@ -12,7 +12,6 @@ const PORT = process.env.PORT || 3000;
 const db = require('./models/index.js');
 
 app.use(express.static(path.join(__dirname, '../client')));
-app.use(express.static(path.join(__dirname, './views')));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -21,8 +20,13 @@ app.use(htmlRouter);
 app.use(eventRoutes);
 app.use(userRoutes);
 
-app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
+app.set('views', path.join(__dirname, 'views'));
+app.engine('handlebars', exphbs({ 
+  defaultLayout: 'main',
+  layoutsDir: path.join(__dirname, 'views/layouts')
+}));
 app.set('view engine', 'handlebars');
+
 
 db.sequelize.sync().then(() => {
   app.listen(PORT, function () {

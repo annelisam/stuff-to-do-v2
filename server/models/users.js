@@ -5,15 +5,15 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
     email: {
-      type: DataTypes.STRING, 
+      type: DataTypes.STRING,
       allowNull: false,
       validate: {
         isEmail: true,
       }
     }
   }, {
-    timestamps: false,
-  })
+      timestamps: false,
+    })
 
   User.associate = (models) => {
     models.User.hasMany(models.Event, {

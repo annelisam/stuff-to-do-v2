@@ -170,12 +170,12 @@ async function initMap() {
     ]
   });
   allEvents.forEach(eventData => {
-    const eventLocation = new google.maps.LatLng(eventData.lat, eventData.lng); 
+    const eventLocation = new google.maps.LatLng(eventData.lat, eventData.lng);
     const marker = new google.maps.Marker({
       position: eventLocation,
       eventInfo: eventData,
     })
-    marker.addListener('click', function() {
+    marker.addListener('click', function () {
       // create functionality for when user clicks on marker to open up the event details
       console.log(this);
     })

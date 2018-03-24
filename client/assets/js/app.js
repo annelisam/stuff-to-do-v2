@@ -26,5 +26,16 @@ $(document).ready(function() {
       })  
     })
   }
-})
+});
 
+function getLatLng(city) {
+  return new Promise((resolve, reject) => {
+    $.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${city}&key=AIzaSyDsfnjM905ho9lC-EwFVAI8oOUivynhT9g`, (error, response, body) => {
+      const location = {
+        lat: body.responseJSON.results[0].geometry.location.lat,
+        lng: body.responseJSON.results[0].geometry.location.lng,
+      }
+      resolve(location);
+    })
+  })
+}

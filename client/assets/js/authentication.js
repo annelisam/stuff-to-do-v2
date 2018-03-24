@@ -28,13 +28,13 @@ $(document).ready(function(){
 
   //user create account with email
   //submit = Join Now button 
-  $("#register-submit").on("click", function(event){
+  $("#register-submit").on("click", function (event) {
     event.preventDefault();
     var name = $("#name").val();
     var email= $("#email").val();
     var password= $("#password").val();
     var repeatPassword = $("#repeat-password").val();
-    if(password === repeatPassword){
+    if (password === repeatPassword) {
       firebase.auth().createUserWithEmailAndPassword(email, password)
       .then(function(user){
         const user2 = {
@@ -66,17 +66,17 @@ $(document).ready(function(){
   });
 
   //user login with email
-  $("#sign-in-submit").on("click", function(){
-    event.preventDefault();    
+  $("#sign-in-submit").on("click", function () {
+    event.preventDefault();
     var email = $("#sign-in-email").val();
     var password = $("#sign-in-password").val();
     firebase.auth().signInWithEmailAndPassword(email, password)
-    .then(function(user){
-      console.log(user);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+      .then(function (user) {
+        console.log(user);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   });
 
   // google login
@@ -92,9 +92,9 @@ $(document).ready(function(){
   });
 
   //sign out
-  $("#sign-out").on("click", function(){
-    event.preventDefault();    
-    firebase.auth().signOut().then(function() {
+  $("#sign-out").on("click", function () {
+    event.preventDefault();
+    firebase.auth().signOut().then(function () {
       // console.log("signed out!");
       $(".display-user").empty();
       $('#sign-out').hide();

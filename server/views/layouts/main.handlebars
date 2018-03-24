@@ -193,7 +193,17 @@
                   </div>
                 </div>
               </div>
-              <form role="form" class="form-horizontal">
+              <div class="form-group">
+                <label for="addEventDate" class="col-sm-12 control-label">
+                  Event Date</label>
+                <div class="col-sm-12">
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <input type="text" class="form-control" id="addEventDate" placeholder="Enter date of event: MM/DD/YY" />
+                    </div>
+                  </div>
+                </div>
+              </div>
               <div class="form-group">
                 <label for="addEventStartTime" class="col-sm-12 control-label">
                   Event Start Time</label>
@@ -259,7 +269,7 @@
                 <label for="addEventZipCode" class="col-sm-12 control-label">
                   Zip Code</label>
                 <div class="col-sm-12">
-                  <input type="text" class="form-control" id="addEventZipCode" placeholder="Zip" />
+                  <input type="text" class="form-control" id="addEventZipCode" placeholder="Zip code" />
                 </div>
               </div>
               <div class="form-group">
@@ -269,15 +279,20 @@
                   <input type="text" class="form-control" id="addEventDescription" placeholder="Add a description" />
                 </div>
               </div>
+              <div class="form-group">
+                <label for="addEventPhoto" class="col-sm-12 control-label">
+                  Add a link to a Picture</label>
+                <div class="col-sm-12">
+                  <input type="text" class="form-control" id="addEventPhoto" placeholder="Paste a link to a photo" />
+                </div>
+              </div>
               <div class="row">
                 <div class="col-sm-12">
                 </div>
               </div>
+              <button type="button" class="btn btn-secondary">Close</button>
+              <button type="submit" class="btn btn-primary" id="addEventSaveButton">Save Event</button>
             </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save Event</button>
           </div>
         </div>
       </div>

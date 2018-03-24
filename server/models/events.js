@@ -34,15 +34,15 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: 0,
     },
     address: {
-      type: DataTypes.STRING, 
+      type: DataTypes.STRING,
       allowNull: false,
       validate: {
         min: 3,
       }
     },
     city: {
-      type: DataTypes.STRING, 
-      allowNull: false, 
+      type: DataTypes.STRING,
+      allowNull: false,
       validate: {
         min: 2,
       }
@@ -55,7 +55,7 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
     zipCode: {
-      type: DataTypes.STRING, 
+      type: DataTypes.STRING,
       allowNull: false,
       validate: {
         min: 5,
@@ -70,8 +70,8 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     }
   }, {
-    timestamps: false,
-  })
+      timestamps: false,
+    })
 
   theEvent.associate = (models) => {
     models.Event.belongsTo(models.User, {
@@ -81,6 +81,6 @@ module.exports = (sequelize, DataTypes) => {
     })
 
   }
-  
+
   return theEvent;
 }

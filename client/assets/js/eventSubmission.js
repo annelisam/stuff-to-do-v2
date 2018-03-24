@@ -5,57 +5,59 @@
 // delete existing = delete
 
 // be sure to add some event.preventDefault(); lines on any submit button types later
-$(function() {
+$(document).ready(function () {
   // stuff to do when submit event button clicked
   // grab these data values to pass into object to be posted to database w/ AJAX POST call
-  $('.submitEventButton').on('click', function(event) {
+  $('#addEventSaveButton').on('click', function (event) {
     event.preventDefault();
-    // !!!change these $(this).data things to be the class/id names of the fields that the info is entered into!!!
-    // let eventId = $(this).data('eventId'); id will be auto-incremented(?)
-    let eventName = $(this).data('eventName');
-    let eventInfo = $(this).data('eventInfo');
-    let eventPhoto = $(this).data('eventPhoto');
-    let eventDate = $(this).data('eventDate');
-    let eventUpVotes = $(this).data('eventUpVotes');
-    let eventAddress = $(this).data('eventAddress');
-    let eventCity = $(this).data('eventCity');
-    let eventState = $(this).data('eventState');
-    let eventZip = $(this).data('eventZip');
-    // let eventCreatedAt = $(this).data('eventCreatedAt');
-    // let eventUpdatedAt = $(this).data('eventUpdatedAt');
-    // let eventCreator = $(this).data('eventCreator');
+
+    let eventName = $('#addEventName').val();
+    console.log(`eventName: ${eventName}`);
+    let eventHost = $('#addEventHost').val();
+    console.log(`eventHost: ${eventHost}`);
+    let eventDate = $('#addEventDate').val();
+    console.log(`eventDate: ${eventDate}`);
+    let eventStreetAddress = $('#addEventStreetAddress').val();
+    console.log(`eventStreetAddress: ${eventStreetAddress}`);
+    let eventCity = $('#addEventCity').val();
+    console.log(`eventCity: ${eventCity}`);
+    let eventState = $('#addEventState').val();
+    console.log(`eventState: ${eventState}`);
+    let eventZip = $('#addEventZipCode').val();
+    console.log(`eventZip: ${eventZip}`);
+    let eventInfo = $('#addEventDescription').val();
+    console.log(`eventInfo: ${eventInfo}`);
+    let eventPhotoUrl = $('#addEventPhoto').val();
+    console.log(`eventPhotoUrl: ${eventPhotoUrl}`);
 
     let eventFullDescription = {
-      // id: eventId, id will be auto-incremented(?)
       name: eventName,
       description: eventInfo,
-      urlPhoto: eventPhoto,
-      date: eventDate,
-      upVotes: eventUpVotes,
-      address: eventAddress,
+      urlPhoto: eventPhotoUrl,
+      dateTime: eventDate,
+      address: eventStreetAddress,
       city: eventCity,
       state: eventState,
       zipCode: eventZip,
-      // createdAt: eventCreatedAt,
-      // updatedAt: eventUpdatedAt,
-      // UserId: eventCreator,
+      UserId: 1,
     };
+    console.log(`the full description to post: ${JSON.stringify(eventFullDescription, null, 2)}`);
     // post the eventInfo to create new event
     $.ajax('/api/events', {
       type: 'POST',
       data: eventFullDescription
     }).then(
-      function() {
-        console.log(`posted new event: ${eventFullDescription}`);
+      function () {
+        console.log(`posted new event: ${JSON.stringify(eventFullDescription, null, 2)}`);
         location.reload();
       }
     );
   });
-  
+
   // stuff to do when edit event button clicked
   // make a GET to pull the existing event data & populate the user input pop-up.
   // then make a PUT w/ whatever the unchanged existing data & updated data are.
-  $('.editEventButton').on('click', function(event) {
+  $('.editEventButton').on('click', function (event) {
     let eventId = $(this).data('eventId');
     // other lets to hold event info
     // put those here later
@@ -67,7 +69,7 @@ $(function() {
       type: 'PUT',
       data: eventDescriptionEdits
     }).then(
-      function() {
+      function () {
         console.log(`updated event details: ${eventDescriptionEdits}`);
         location.reload();
       }
@@ -75,13 +77,13 @@ $(function() {
   });
 
   // stuff to do when delete event button clicked
-  $('.deleteEventButton').on('click', function(event) {
+  $('.deleteEventButton').on('click', function (event) {
     let eventId = $(this).data('eventId');
     // send delete request
     $.ajax('/api/events/' + eventId, {
       type: 'DELETE',
     }).then(
-      function() {
+      function () {
         console.log(`deleted event id#: ${eventId}`);
         location.reload();
       }

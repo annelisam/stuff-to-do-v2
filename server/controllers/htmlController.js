@@ -42,4 +42,3 @@ const htmlController = {
 }
 
 module.exports = htmlController;
-

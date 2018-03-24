@@ -90,6 +90,10 @@
     .navbar {
         height: 50px;
         position: relative;
+        border-radius: 0;
+        z-index: 2;
+        margin: 0;
+        clear: both;
     }
 
     a:hover {
@@ -109,13 +113,7 @@
 
     /* Results page with map  */
     #results-content {
-        background-color: #eee;
-        position: absolute;
-        width: 560px;
-        top: 62px;
-        left: 0;
-        bottom: 0;
-        overflow: hidden;
+
     }
 
     .slide-pane {
@@ -135,6 +133,7 @@
             height: 100%;
             width: 60%;
             float: right;
+            clear: top;
         }
         /* Optional: Makes the sample page fill the window. */
         html, body {
@@ -150,7 +149,11 @@
             background-color:#f8f9fa;
             border-right: 1px solid #eeeeee; 
             overflow-y: scroll;
-            margin-bottom: 30px;
+            position: absolute;
+            width: 40%;
+            top: 50px;
+            left: 0;
+            bottom: 0;
         }
 
         #filters {

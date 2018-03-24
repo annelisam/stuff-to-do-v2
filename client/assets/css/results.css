@@ -79,7 +79,7 @@ p {
 
 /* Navbar */
 .navbar, .navbar-brand a{
-  color: #777;
+  color: #fff;
 }
 
 .navbar {
@@ -92,7 +92,6 @@ p {
 
 a:hover {
   text-decoration: none;
-  color: #777;
 }
 
 /* Always set the map height explicitly to define the size of the div
@@ -175,8 +174,8 @@ padding: 0;
   }
 
   .card {
-  height: 300px auto;
-  margin-bottom: 25px;
+  height: 250px auto;
+  /* margin-bottom: 25px; */
   background-color: #000;
   border: none;
   }
@@ -190,7 +189,7 @@ padding: 0;
   object-fit: cover;
   object-position: 100% 0;
   width: auto;
-  height: 300px;
+  height: 250px;
   opacity: 0.6;
   }
 
@@ -201,24 +200,30 @@ padding: 0;
   font-size: 30px;
   }
 
+  .results-card h5 {
+    font-size: 40px;
+    text-align: left;
+  }
+
   .card-text p{
   padding-top: 10px;
   font-size: 12px;
   font-weight: lighter;
+  text-align: left;
 
 
   }
 
   .card {
-  height: 300px auto;
-  margin-bottom: 25px;
+  height: 250px auto;
+  /* margin-bottom: 10px; */
   background-color: #000;
   border: none;
-  border-radius: 3px;
+  border-radius: 10px;
   }
 
   .results-card {
-  margin: 15px;
+  margin: 10px;
   border: none;
-  height: 300px auto;
+  height: 250px auto;
 }

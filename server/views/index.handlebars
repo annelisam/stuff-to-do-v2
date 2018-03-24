@@ -1,86 +1,80 @@
-{{!-- For the left side with results --}}
 <head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S"
-  crossorigin="anonymous">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	<!-- Font Awesome icons v4.2.0 -->
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous">
-	<!-- Google Fonts -->
-
-	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="/assets/css/index.css">  
-
+    crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="/assets/css/index.css">
 </head>
 
 <div class="main-header">
-    <div class="container">
-            <h3 id="landing-header" class="display-3 text-center">so much to do, so much to see.</h3>
+  <div class="container">
+    <h3 id="landing-header" class="display-3 text-center">so much to do, so much to see.</h3>
+  </div>
+  <div class="container">
+    <div class="text-center">
+      <form>
+        <input id="landing-input" placeholder="so what's wrong with taking the back streets?">
+        <a id="searchEvents" href="#">
+          <i class="fas fa-search text-white"></i>
+        </a>
+      </form>
     </div>
-        <div class="container">
-        <div class="text-center">
-            <form>
-            <input id="landing-input" placeholder="so what's wrong with taking the back streets?"></input>
-            <a id="searchEvents" href="#"><i class="fas fa-search text-white"></i></a>
-            </form>
-            
-        </div>
-    </div>
+  </div>
 </div>
 
-<!-- City Cards -->
 <div class="main-content">
-<div class="container">
+  <div class="container">
     <div class="row">
-        <div class="col-lg-12">
-            <h1 class="text-center display-4">Trending Now</h1>
-            <hr>
-        </div>
-            <div class="col-sm-6">
-                <a href="#">
-                    <div class="options-card card text-white">
-                            <img class="card-img" src="../assets/images/losangeles.jpg" alt="Card image">
-                            <div class="card-img-overlay">
-                              <h5 class="card-title display-5">Los Angeles</h5>
-                            </div>
-                    </div>
-                </a>
+      <div class="col-lg-12">
+        <h1 class="text-center display-4">Trending Now</h1>
+        <hr>
+      </div>
+      <div class="col-sm-6">
+        <a href="#">
+          <div class="options-card card text-white">
+            <img class="card-img" src="../assets/images/losangeles.jpg" alt="Card image">
+            <div class="card-img-overlay">
+              <h5 class="card-title display-5">Los Angeles</h5>
             </div>
+          </div>
+        </a>
+      </div>
 
-            <div class="col-sm-6">
-                <a href="#">
-                    <div class="options-card card text-white">
-                            <img class="card-img" src="../assets/images/newyork.jpg" alt="Card image">
-                            <div class="card-img-overlay">
-                              <h5 class="card-title display-5">New York</h5>
-                            </div>
-                    </div>
-                </a>
+      <div class="col-sm-6">
+        <a href="#">
+          <div class="options-card card text-white">
+            <img class="card-img" src="../assets/images/newyork.jpg" alt="Card image">
+            <div class="card-img-overlay">
+              <h5 class="card-title display-5">New York</h5>
             </div>
+          </div>
+        </a>
+      </div>
 
-            <div class="col-sm-6">
-                    <a href="#">
-                        <div class="options-card card text-white">
-                                <img class="card-img" src="../assets/images/miami.jpg" style="height: 200px" alt="Card image">
-                                <div class="card-img-overlay">
-                                  <h5 class="card-title display-5">Miami</h5>
-                                </div>
-                        </div>
-                    </a>
+      <div class="col-sm-6">
+        <a href="#">
+          <div class="options-card card text-white">
+            <img class="card-img" src="../assets/images/miami.jpg" style="height: 200px" alt="Card image">
+            <div class="card-img-overlay">
+              <h5 class="card-title display-5">Miami</h5>
             </div>
+          </div>
+        </a>
+      </div>
 
-            <div class="col-sm-6">
-                    <a href="#">
-                        <div class="options-card card text-white">
-                                <img class="card-img" src="../assets/images/chicago.jpg" alt="Card image">
-                                <div class="card-img-overlay">
-                                  <h5 class="card-title display-5">Chicago</h5>
-                                </div>
-                        </div>
-                    </a>
+      <div class="col-sm-6">
+        <a href="#">
+          <div class="options-card card text-white">
+            <img class="card-img" src="../assets/images/chicago.jpg" alt="Card image">
+            <div class="card-img-overlay">
+              <h5 class="card-title display-5">Chicago</h5>
             </div>
+          </div>
+        </a>
+      </div>
     </div>
-</div>  
-</div>
+  </div>
 </div>
 
 <script src="/assets/js/app.js"></script>

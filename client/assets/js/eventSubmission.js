@@ -8,7 +8,6 @@ $(document).ready(function () {
     let eventDate = $('#addEventDate').val().trim();
     let eventStartTime = $('#addEventStartTime').val().trim();
     let eventDateTime = `${eventDate} ${eventStartTime}`;
-    // let momentEventDateTime = moment(eventDateTime).format("ddd MMM DD YYYY HH:mm:ss");
     let momentEventDateTime = moment(eventDateTime).format("YYYY-MM-DD HH:mm:ss");
 
     let eventStreetAddress = $('#addEventStreetAddress').val().trim();
@@ -43,7 +42,7 @@ $(document).ready(function () {
 
   $('.editEventButton').on('click', function (event) {
     let eventId = $(this).data('eventId');
-    
+
     let eventDescriptionEdits = {
       name: eventName,
       description: eventInfo,

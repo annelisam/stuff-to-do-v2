@@ -28,13 +28,11 @@ $(document).ready(function () {
       zipCode: eventZip,
       UserId: 1,
     };
-    console.log(`the full description to post: ${JSON.stringify(eventFullDescription, null, 2)}`);
     $.ajax('/api/events', {
       type: 'POST',
       data: eventFullDescription
     }).then(
       function () {
-        console.log(`posted new event: ${JSON.stringify(eventFullDescription, null, 2)}`);
         location.reload();
       }
     );
@@ -59,7 +57,6 @@ $(document).ready(function () {
       data: eventDescriptionEdits
     }).then(
       function () {
-        console.log(`updated event details: ${eventDescriptionEdits}`);
         location.reload();
       }
     );
@@ -71,7 +68,6 @@ $(document).ready(function () {
       type: 'DELETE',
     }).then(
       function () {
-        console.log(`deleted event id#: ${eventId}`);
         location.reload();
       }
     );

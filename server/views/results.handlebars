@@ -1,72 +1,61 @@
-{{!-- For the left side with results --}}
 <head>
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S"
-        crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="/assets/css/results.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S"
+    crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="/assets/css/results.css">
 </head>
 
 <div id="info">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div id="filters">
-                    {{#each events}}
-                        <div class="results-card card bg-dark text-white" data-id="{{ id }}">
-                            <img class="card-img" src="{{ urlPhoto }}" alt="event IMG">
-                            <div class=" card-img-overlay">
-                                <h5 class="results-card text-center">{{ name }}</h5>
-                                <p class="card-text align-left"><i class="fas fa-map-pin"></i> {{ city }}</p>
-                                <p class="card-text align-left"><i class="fas fa-calendar-alt"></i> {{ dateTime }}</p>
-        
-                                <button type="button" class="btn btn-info float-left" data-toggle="modal" data-target=".{{id}}">Info</button> 
-                                <div class="modal {{id}} fade {{id}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-lg">
-                                    <div class="modal-content text-dark">
-                                       <div class="container">
-                                           <div class="row">
-                                               <div class="col-lg-12">
-                                                <div class="modal-header">
-                                                <div class="modal-title text-center display-3">
-                                                {{ name }}
-                                                </div>
-                                                </div>
-                                            <div class="modal-body">
-                                            <p>Description: {{ description }}</p>
-                                            <p>Location: {{ address }}, {{ city }}, {{state}}, {{zipCode}}</p>
-                                            <p>Date/Time: {{ dateTime }}</p>
-                                            <p>{{ upVotes }} people are interested in this event.</p>
-                                            </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div id="filters">
 
-                                            </div>
-                                        </div>
-                                       </div>
+          {{#each events}}
+            <div class="results-card card bg-dark text-white" data-id="{{ id }}">
+              <img class="card-img" src="{{ urlPhoto }}" alt="event IMG">
+              <div class=" card-img-overlay">
+                <h5 class="results-card text-center">{{ name }}</h5>
+                <p class="card-text align-left"><i class="fas fa-map-pin"></i> {{ city }}</p>
+                <p class="card-text align-left"><i class="fas fa-calendar-alt"></i> {{ dateTime }}</p>
 
-                                    </div>
-                                    </div>
-                                </div>
-                                
-                                <a href="#" class="btn btn-danger float-right upVote" data="{{ id }}"><i class="fas fa-arrow-up"></i> {{ upVotes }}</a> 
+                <button type="button" class="btn btn-info float-left" data-toggle="modal" data-target=".{{id}}">Info</button>
+                
+                <div class="modal {{id}} fade {{id}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-lg">
+                    <div class="modal-content text-dark">
+                      <div class="container">
+                        <div class="row">
+                          <div class="col-lg-12">
+                            <div class="modal-header">
+                              <div class="modal-title text-center display-3">
+                                {{ name }}
+                              </div>
                             </div>
+                            <div class="modal-body">
+                              <p>Description: {{ description }}</p>
+                              <p>Location: {{ address }}, {{ city }}, {{state}}, {{zipCode}}</p>
+                              <p>Date/Time: {{ dateTime }}</p>
+                              <p>{{ upVotes }} people are interested in this event.</p>
+                            </div>
+                          </div>
                         </div>
-                    {{/each}}
+                      </div>
+                    </div>
+                  </div>
                 </div>
+                <a href="#" class="btn btn-danger float-right upVote" data="{{ id }}"><i class="fas fa-arrow-up"></i> {{ upVotes }}</a>
+              </div>
             </div>
-          </div>
-          {{!-- {{/each}} --}}
+          {{/each}}
+
         </div>
       </div>
     </div>
   </div>
 </div>
 
-{{!-- Map --}}
 <div id="map" style="overflow: hidden;"></div>
 
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-<link rel="stylesheet" type="text/css" href="/assets/css/results.css">
 <script src="/assets/js/results.js"></script>
-<script async defer
-src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDsfnjM905ho9lC-EwFVAI8oOUivynhT9g&callback=initMap">
-</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDsfnjM905ho9lC-EwFVAI8oOUivynhT9g&callback=initMap"></script>

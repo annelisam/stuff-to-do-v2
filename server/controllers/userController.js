@@ -2,12 +2,12 @@ const db = require('../models/index.js');
 
 async function get(req, res) {
   try {
-    const email = req.params.id
+    const email = req.params.id;
     if (req.params.id) {
       const user = await db.User.findOne({
         where: { email: email },
         include: [db.Event],
-      })
+      });
       res.status(200).json(user);
     } else {
       const user = await db.User.findAll({ include: [db.Event] });
@@ -27,7 +27,7 @@ async function post(req, res) {
   const newUser = {
     name, 
     email,
-  }
+  };
   try {
     const data = await db.User.create(newUser);
     res.status(200).json(data);
@@ -46,14 +46,14 @@ async function put(req, res) {
     name,
     email,
     company,
-  }
+  };
   try {
     const data = await db.User.update(updatedUser,
       {
         where: {
           id: id,
         }
-      })
+      });
     res.status(200).json(data);
   } catch (error) {
     if (error.message) {
@@ -68,6 +68,6 @@ const userController = {
   get,
   post,
   put,
-}
+};
 
 module.exports = userController;

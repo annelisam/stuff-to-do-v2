@@ -1,6 +1,10 @@
-/* ________________________________________________________________ */
 .login-1 {
     padding-right: 10px;
+}
+
+.cancel {
+    background-color: #de5152;
+    color: white;
 }
 
 .login-modal {

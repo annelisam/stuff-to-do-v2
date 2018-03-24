@@ -23,11 +23,10 @@ async function get(req, res) {
 }
 
 async function post(req, res) {
-  const {name, email, company} = req.body;
+  const {name, email} = req.body;
   const newUser = {
     name, 
-    email, 
-    company,
+    email,
   }
   try {
     const data = await db.User.create(newUser);

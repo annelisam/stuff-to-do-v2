@@ -28,6 +28,7 @@ $(document).ready(function(){
   //submit = Join Now button 
   $("#register-submit").on("click", function(event){
     event.preventDefault();
+    var name = $("#name").val();
     var email= $("#email").val();
     var password= $("#password").val();
     var repeatPassword = $("#repeat-password").val();
@@ -35,14 +36,19 @@ $(document).ready(function(){
       firebase.auth().createUserWithEmailAndPassword(email, password)
       .then(function(user){
         const user2 = {
-          name: user.displayName,
+          name: name,
           email: user.email
         }
         console.log(user);
+        console.log(user2);
+        console.log(name);
         $.ajax({
-          method: 'POST',
+          type: 'POST',
           url: '/api/user',
           data: user2,
+        })
+        .done(function() {
+          $('#myModal').modal('hide');
         })
       })
       .catch(function(error) {

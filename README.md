@@ -14,9 +14,8 @@ stuff-to-do-v2 is here to help.
 
 1. use `npm install` to install dependencies.
 2. create the database by running the `CREATE DATABASE` line in the `dbSchema.sql` file.
-3. navigate to `stuff-to-do-v2/server/server.js`.
-4. use command `node server.js` to start server.
-5. point browser to `localhost:3000` to find some fun events.
+3. use command `npm start` to start the server.
+4. point your browser of choice to `localhost:3000` to find some fun events.
 
 ### Use
 

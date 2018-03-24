@@ -21,11 +21,11 @@ app.use(htmlRouter);
 app.use(eventRoutes);
 app.use(userRoutes);
 
-app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
 db.sequelize.sync().then(() => {
-  app.listen(PORT, function() {
+  app.listen(PORT, function () {
     console.log('App listening on PORT ' + PORT);
   });
 });

@@ -4,13 +4,13 @@ async function get(req, res) {
   try {
     const email = req.params.id
     if (req.params.id) {
-      const user = await db.User.findOne({ 
+      const user = await db.User.findOne({
         where: { email: email },
         include: [db.Event],
       })
       res.status(200).json(user);
     } else {
-      const user = await db.User.findAll({include: [db.Event]});
+      const user = await db.User.findAll({ include: [db.Event] });
       res.status(200).send(user);
     }
   } catch (error) {
@@ -23,10 +23,10 @@ async function get(req, res) {
 }
 
 async function post(req, res) {
-  const {name, email, company} = req.body;
+  const { name, email, company } = req.body;
   const newUser = {
-    name, 
-    email, 
+    name,
+    email,
     company,
   }
   try {
@@ -42,19 +42,19 @@ async function post(req, res) {
 }
 
 async function put(req, res) {
-  const {name, email, company, id} = req.body;
+  const { name, email, company, id } = req.body;
   const updatedUser = {
-    name, 
-    email, 
+    name,
+    email,
     company,
   }
   try {
     const data = await db.User.update(updatedUser,
-    {
-      where: {
-        id: id,
-      }
-    })
+      {
+        where: {
+          id: id,
+        }
+      })
     res.status(200).json(data);
   } catch (error) {
     if (error.message) {

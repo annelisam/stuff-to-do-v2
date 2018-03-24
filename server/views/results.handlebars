@@ -1,223 +1,228 @@
 {{!-- For the left side with results --}}
-
 <style>
-{{!-- Default page style --}}
-    * {
-        font-family: sans-serif, 'Roboto', helvetica, arial;
-    }
+  /* Default page style */
 
-    body {
-        background-color: #eee;
-        font-family: sans-serif;
-    }
+  * {
+    font-family: sans-serif, 'Roboto', helvetica, arial;
+  }
 
-    p {
-        font-family:sans-serif, 'Roboto', helvetica, arial;
-    }
+  body {
+    background-color: #eee;
+    font-family: sans-serif;
+  }
 
+  p {
+    font-family: sans-serif, 'Roboto', helvetica, arial;
+  }
 
+  .dropdown:hover .dropdown-menu {
+    display: block;
+    min-width: 300px;
+  }
 
-    .dropdown:hover .dropdown-menu {
-        display: block;
-        min-width: 300px;
-    }
+  .main-header {
+    padding-top: 100px;
+    position: relative;
+    font-size: 25px;
 
-    .main-header {
-        padding-top: 100px;
-        position: relative;
-        font-size: 25px;
+    /* The image used */
+    background-image: url(https://images.unsplash.com/photo-1502786403187-735311c54e9d?ixlib=rb-0.3.5&s=07c480f04fe20dd167072aad51961499&auto=format&fit=crop&w=2850&q=80);
 
-        /* The image used */
-        background-image: url(https://images.unsplash.com/photo-1502786403187-735311c54e9d?ixlib=rb-0.3.5&s=07c480f04fe20dd167072aad51961499&auto=format&fit=crop&w=2850&q=80);
-
-        /* Full height */
-        height: 100%; 
-        height: 702px;
-
-        /* Create the parallax scrolling effect */
-        background-attachment: fixed;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-
-    }
-
-    /* Landing header */
-
-    #landing-header {
-        padding-top: 200px;
-        padding-bottom: 20px;
-        color: #fff;
-        text-shadow: 0 1px 1px rgba(0,0,0,0.6);
-        font-family: sans-serif, 'Roboto', helvetica, arial;
-        text-align: center;
-        font-weight: 600;
-        font-size: 55px;
-    }
-
-    #landing-input{
-        font-family: sans-serif, 'Roboto', helvetica, arial;
-        border: none;
-        border-radius: 25px;
-        padding: 5px;
-        width: 450px;
-        height: 50px;
-        font-size: 18px;
-        padding-left: 10px;
-        opacity: 0.8
-    }
-
-    #landing-input input::placeholder {
-        color: #777;
-        text-align: left;
-        font-size: 18px
-    }
-
-    /* Main Content */
-    .main-content {
-        margin-top: 100px;
-        margin-bottom: 100px;
-    }
-
-
-    .card {
-        height: 200px auto;
-        margin-bottom: 25px;
-    }
-
-    .card-img-top {
-        object-fit: cover;
-        object-position: 100% 0;
-        width: auto;
-        height: 200px;
-    }
-    .card-title {
-        font-weight: 200px;
-        text-align: left;
-        font-size: 40px;
-    }
-
-    .options-card {
-        position: center;
-        margin: 15px;
-        border-radius: 25px; 
-    }
-
-    /* Navbar */
-    .navbar, .navbar-brand a{
-        font-weight: bold;
-        text-shadow: 0 0.5px 0.5px rgba(0,0,0,0.6);
-        color: #fff;
-    }
-
-    a:hover {
-        text-decoration: none;
-        color: #ccc;
-    }
-
-    /* Always set the map height explicitly to define the size of the div
-    * element that contains the map. */
-    #map {
+    /* Full height */
     height: 100%;
-    }
-    /* Optional: Makes the sample page fill the window. */
-    html, body {
+    height: 702px;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  /* Landing header */
+
+  #landing-header {
+    padding-top: 200px;
+    padding-bottom: 20px;
+    color: #fff;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.6);
+    font-family: sans-serif, 'Roboto', helvetica, arial;
+    text-align: center;
+    font-weight: 600;
+    font-size: 55px;
+  }
+
+  #landing-input {
+    font-family: sans-serif, 'Roboto', helvetica, arial;
+    border: none;
+    border-radius: 25px;
+    padding: 5px;
+    width: 450px;
+    height: 50px;
+    font-size: 18px;
+    padding-left: 10px;
+    opacity: 0.8
+  }
+
+  #landing-input input::placeholder {
+    color: #777;
+    text-align: left;
+    font-size: 18px
+  }
+
+  /* Main Content */
+
+  .main-content {
+    margin-top: 100px;
+    margin-bottom: 100px;
+  }
+
+  .card {
+    height: 200px auto;
+    margin-bottom: 25px;
+  }
+
+  .card-img-top {
+    object-fit: cover;
+    object-position: 100% 0;
+    width: auto;
+    height: 200px;
+  }
+
+  .card-title {
+    font-weight: 200px;
+    text-align: left;
+    font-size: 40px;
+  }
+
+  .options-card {
+    position: center;
+    margin: 15px;
+    border-radius: 25px;
+  }
+
+  /* Navbar */
+
+  .navbar,
+  .navbar-brand a {
+    font-weight: bold;
+    text-shadow: 0 0.5px 0.5px rgba(0, 0, 0, 0.6);
+    color: #fff;
+  }
+
+  a:hover {
+    text-decoration: none;
+    color: #ccc;
+  }
+
+  /* Always set the map height explicitly to define the size of the div element that contains the map. */
+
+  #map {
+    height: 100%;
+  }
+
+  /* Optional: Makes the sample page fill the window. */
+
+  html,
+  body {
     height: 100%;
     margin: 0;
     padding: 0;
-    }
+  }
 
-    /* Results page with map  */
-    #results-content {
-        background-color: #eee;
-        position: absolute;
-        width: 560px;
-        top: 62px;
-        left: 0;
-        bottom: 0;
-        overflow: hidden;
-    }
+  /* Results page with map  */
 
-    .slide-pane {
-        width: 560px;
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        transition: left 0.35s;
-    }
+  #results-content {
+    background-color: #eee;
+    position: absolute;
+    width: 560px;
+    top: 62px;
+    left: 0;
+    bottom: 0;
+    overflow: hidden;
+  }
 
-{{!-- Results page style --}}
+  .slide-pane {
+    width: 560px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    transition: left 0.35s;
+  }
 
+  /* Results page style */
 
-        /* Always set the map height explicitly to define the size of the div
-        * element that contains the map. */
-        #map {
-            height: 100%;
-            width: 60%;
-            float: right;
-        }
-        /* Optional: Makes the sample page fill the window. */
-        html, body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-        }
+  /* Always set the map height explicitly to define the size of the div element that contains the map. */
 
-        #info {
-            height: 100%;
-            width: 40%;
-            float: left;
-            background-color:#f8f9fa;
-            border-right: 1px solid #eeeeee; 
-            padding-top: 30px;
-            overflow-y: scroll;
-        }
+  #map {
+    height: 100%;
+    width: 60%;
+    float: right;
+  }
 
-        #filters {
-            padding-top: 25px;
-            background-color: #f8f9fa;
-            font-weight: bolder;
-        }
+  /* Optional: Makes the sample page fill the window. */
 
-        #results {
-            padding-top: 25px;
-        }
+  html,
+  body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
 
-        .dropdown a{
-            color: #777;
-        }
+  #info {
+    height: 100%;
+    width: 40%;
+    float: left;
+    background-color: #f8f9fa;
+    border-right: 1px solid #eeeeee;
+    padding-top: 30px;
+    overflow-y: scroll;
+  }
 
+  #filters {
+    padding-top: 25px;
+    background-color: #f8f9fa;
+    font-weight: bolder;
+  }
+
+  #results {
+    padding-top: 25px;
+  }
+
+  .dropdown a {
+    color: #777;
+  }
 </style>
 
 {{!-- Right side --}}
 <div id="info">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div id="filters">
-                    {{#each events}}
-                        <div class="card" data-id="{{ id }}">
-                            <img class="card-img-top" src="{{ urlPhoto }}" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ name }}</h5>
-                                <p class="card-text">{{ description }}</p>
-                                <p class="card-text">{{ date }}</p>            
-                                <a href="#" class="btn btn-primary">Upvote {{ upVotes }}</a>
-                            </div>
-                        </div>
-                    {{/each}}
-                </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div id="filters">
+          {{#each events}}
+          <div class="card" data-id="{{ id }}">
+            <img class="card-img-top" src="{{ urlPhoto }}" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">{{ name }}</h5>
+              <p class="card-text">{{ description }}</p>
+              <p class="card-text">{{ date }}</p>
+              <a href="#" class="btn btn-primary">Upvote {{ upVotes }}</a>
             </div>
+          </div>
+          {{/each}}
         </div>
+      </div>
     </div>
+  </div>
 </div>
 
 {{!-- Map --}}
 <div id="map" style="overflow: hidden;"></div>
-
+<!-- jQuery v3.3.1 -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- Custom js -->
 <script src="../assets/js/results.js"></script>
-<script async defer
-src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDsfnjM905ho9lC-EwFVAI8oOUivynhT9g&callback=initMap">
+<!-- GoogleMaps -->
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDsfnjM905ho9lC-EwFVAI8oOUivynhT9g&callback=initMap">
 </script>
-

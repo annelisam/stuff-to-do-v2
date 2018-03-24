@@ -1,5 +1,6 @@
 async function initMap() {
-  const location = JSON.parse(localStorage.getItem('location'));  
+  const location = JSON.parse(localStorage.getItem('location')); 
+  console.log(location); 
   const allEvents = await getAllEvents(location);
 
   // const uluru = {lat: location.lat, lng: location.lng};
@@ -184,12 +185,21 @@ async function initMap() {
 
 function getAllEvents(location) {
   return new Promise((resolve, reject) => {
-    const lat = location.lat;
-    const lng = location.lng;
-    $.get('/api/events?lat=' + lat + '&lng=' + lng)    
-    .then(events => {
-      resolve(events);
-    })
+    if (location !== null) {
+      const lat = location.lat;
+      const lng = location.lng;
+      $.get('/api/events?lat=' + lat + '&lng=' + lng)    
+      .then(events => {
+        resolve(events);
+      })
+    } else {
+      const lat = 34.065266;
+      const lng = -118.250068;
+      $.get('/api/events?lat=' + lat + '&lng=' + lng)    
+      .then(events => {
+        resolve(events);
+      })
+    }
   })
 }
 

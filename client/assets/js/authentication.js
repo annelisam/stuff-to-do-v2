@@ -1,6 +1,8 @@
 var database;
 
-$(document).ready(function () {
+$(document).ready(function(){
+  $('#sign-out').hide();
+
   var config = {
     apiKey: "AIzaSyBKdOWnSPjOT1-mU1VCqhbcXNeOBi4bslw",
     authDomain: "stuff-2-do.firebaseapp.com",
@@ -39,9 +41,6 @@ $(document).ready(function () {
           name: name,
           email: user.email
         }
-        console.log(user);
-        console.log(user2);
-        console.log(name);
         $.ajax({
           type: 'POST',
           url: '/api/user',
@@ -49,6 +48,8 @@ $(document).ready(function () {
         })
         .done(function() {
           $('#myModal').modal('hide');
+          $('#reg-login').hide();
+          $('#sign-out').show();
         })
       })
       .catch(function(error) {
@@ -57,6 +58,11 @@ $(document).ready(function () {
     }
     // Ajax call --> post 
     // router.route('/api/user').post(userController.post);
+  });
+
+  // cancel
+  $('#cancel').click(function() {
+    $('#myModal').modal('hide');
   });
 
   //user login with email
@@ -91,7 +97,9 @@ $(document).ready(function () {
     firebase.auth().signOut().then(function () {
       // console.log("signed out!");
       $(".display-user").empty();
-    }).catch(function (error) {
+      $('#sign-out').hide();
+      $('#reg-login').show();  
+    }).catch(function(error) {
       console.log("something happened with sign out.");
     });
   });

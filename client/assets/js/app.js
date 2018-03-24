@@ -1,17 +1,17 @@
 $(document).ready(function() {
-  $('.input').keypress(async function(event) {
-    if(event.which == 13) {
-      try {
-        const city = $('.landingInput').val().trim();
-        const cityLocaion = await getLatLng(city);git 
-        localStorage.setItem('location', JSON.stringify(cityLocaion));
-        $.get('/events?lat=' + cityLocation.lat + '&lng=' + cityLocation.lng);
-      } catch(error) {
-        if (error.message) {
-          console.error(error.message);
-        }
-        console.error(error);
+  $('#searchEvents').click(async function(event) {
+    event.preventDefault();
+    try {
+      const city = $('#landing-input').val().trim();
+      const cityLocation = await getLatLng(city);
+      localStorage.setItem('location', JSON.stringify(cityLocation));              
+      console.log(cityLocation); 
+      window.location.replace('/events?lat=' + cityLocation.lat + '&lng=' + cityLocation.lng);
+    } catch(error) {
+      if (error.message) {
+        console.error(error.message);
       }
+      console.error(error);
     }
   })
   

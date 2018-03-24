@@ -28,26 +28,32 @@ $(document).ready(function () {
   //submit = Join Now button 
   $("#register-submit").on("click", function (event) {
     event.preventDefault();
-    var email = $("#email").val();
-    var password = $("#password").val();
+    var name = $("#name").val();
+    var email= $("#email").val();
+    var password= $("#password").val();
     var repeatPassword = $("#repeat-password").val();
     if (password === repeatPassword) {
       firebase.auth().createUserWithEmailAndPassword(email, password)
-        .then(function (user) {
-          const user2 = {
-            name: user.displayName,
-            email: user.email
-          }
-          console.log(user);
-          $.ajax({
-            method: 'POST',
-            url: '/api/user',
-            data: user2,
-          })
+      .then(function(user){
+        const user2 = {
+          name: name,
+          email: user.email
+        }
+        console.log(user);
+        console.log(user2);
+        console.log(name);
+        $.ajax({
+          type: 'POST',
+          url: '/api/user',
+          data: user2,
         })
-        .catch(function (error) {
-          console.log(error);
-        });
+        .done(function() {
+          $('#myModal').modal('hide');
+        })
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
     }
     // Ajax call --> post 
     // router.route('/api/user').post(userController.post);

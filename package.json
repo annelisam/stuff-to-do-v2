@@ -20,7 +20,7 @@
   "homepage": "https://github.com/annelisam/stuff-to-do-v2#readme",
   "dependencies": {
     "body-parser": "^1.18.2",
-    "express": "^4.16.3",
+    "express": "^4.17.3",
     "express-handlebars": "^3.0.0",
     "mysql2": "^1.5.2",
     "request": "^2.85.0",
